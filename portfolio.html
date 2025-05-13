@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | CryptoConnect</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+     <style>
+        .summary-card {
+            background-color: var(--dark-light);
+            border: 1px solid var(--bs-border-color-translucent);
+            border-radius: 10px;
+        }
+        .summary-card .card-title {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .summary-card .card-text {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+         .placeholder-chart {
+             background-color: rgba(255, 255, 255, 0.05);
+             border-radius: 8px;
+             min-height: 250px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             color: var(--text-light);
+         }
+          .holdings-list .list-group-item {
+             background-color: transparent;
+             border-color: var(--bs-border-color-translucent);
+             color: var(--text);
+          }
+           .login-prompt {
+             background-color: var(--dark-light);
+             border: 1px dashed rgba(59, 130, 246, 0.4);
+             border-radius: 10px;
+           }
+     </style>
+
+</head>
+<body data-bs-theme="dark">
+
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg fixed-top custom-navbar">
+         <div class="container">
+            <a class="navbar-brand logo" href="index.html">Crypto<span>Connect</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="markets.html">Markets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chat.html">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="portfolio.html">Portfolio</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html#features">Features</a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-cta">Join Community</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero Section -->
+        <section class="page-hero pt-5 pb-4 bg-darker-subtle">
+            <div class="container">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-5 pt-4">
+                     <h1 class="display-5 fw-bold mb-3 mb-md-0" data-aos="fade-right">Your Portfolio</h1>
+                     <div data-aos="fade-left">
+                         <button class="btn btn-outline-secondary me-2"><i class="bi bi-plus-circle me-1"></i> Add Transaction</button>
+                         <button class="btn btn-primary-light"><i class="bi bi-link-45deg me-1"></i> Connect Exchange</button>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Content Section -->
+        <section class="section">
+            <div class="container">
+
+                <!-- Login/Connect Prompt (Show this if user is not logged in or hasn't connected data) -->
+                 <div class="login-prompt p-4 p-md-5 text-center mb-5" data-aos="zoom-in">
+                     <i class="bi bi-lock-fill fs-1 text-primary-light mb-3"></i>
+                     <h3 class="mb-3">Connect to View Your Portfolio</h3>
+                     <p class="text-light opacity-75 mb-4">
+                         Log in or connect your exchange accounts (Binance, Coinbase, etc.) via secure API keys to track your crypto holdings automatically.
+                     </p>
+                      <button class="btn btn-cta btn-lg">Log In / Sign Up</button>
+                 </div>
+
+                <!-- Placeholder Content (Show this structure if data were loaded) -->
+                <div class="portfolio-dashboard">
+                     <!-- Summary Cards -->
+                     <div class="row g-4 mb-5">
+                         <div class="col-md-4" data-aos="fade-up">
+                             <div class="card summary-card text-center">
+                                 <div class="card-body">
+                                     <h6 class="card-title">Total Balance</h6>
+                                     <p class="card-text">$ 15,840.50</p>
+                                     <small class="text-success fw-semibold">+ $350.12 (2.27%) Today</small>
+                                 </div>
+                             </div>
+                         </div>
+                          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                              <div class="card summary-card text-center">
+                                 <div class="card-body">
+                                     <h6 class="card-title">Total Profit / Loss</h6>
+                                     <p class="card-text text-success">+ $ 2,105.75</p>
+                                     <small class="text-muted fw-semibold">All Time</small>
+                                 </div>
+                             </div>
+                         </div>
+                           <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                               <div class="card summary-card text-center">
+                                 <div class="card-body">
+                                     <h6 class="card-title">Best Performing (24h)</h6>
+                                     <p class="card-text text-info">Solana (SOL)</p>
+                                     <small class="text-success fw-semibold">+ 8.5%</small>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                    <!-- Holdings Allocation -->
+                    <div class="row g-4 mb-5">
+                        <div class="col-lg-5" data-aos="fade-right">
+                            <h3 class="h4 mb-3">Holdings Allocation</h3>
+                            <div class="placeholder-chart mb-3">
+                                <i class="bi bi-pie-chart-fill fs-2 me-2"></i> Placeholder Pie Chart
+                            </div>
+                        </div>
+                        <div class="col-lg-7" data-aos="fade-left">
+                             <h3 class="h4 mb-3">Top Assets</h3>
+                             <ul class="list-group holdings-list">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="bitcoin-btc-logo.png" alt="BTC" class="coin-logo">
+                                        <span>Bitcoin (BTC)</span>
+                                    </div>
+                                    <span>$ 8,500.20 <small class="text-muted ms-1">(53.6%)</small></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="ethereum-eth-logo.png" alt="ETH" class="coin-logo">
+                                        <span>Ethereum (ETH)</span>
+                                    </div>
+                                     <span>$ 4,200.00 <small class="text-muted ms-1">(26.5%)</small></span>
+                                </li>
+                                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     <div class="d-flex align-items-center gap-3">
+                                        <img src="solana-sol-logo.png" alt="SOL" class="coin-logo">
+                                        <span>Solana (SOL)</span>
+                                    </div>
+                                     <span>$ 1,850.30 <small class="text-muted ms-1">(11.7%)</small></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     <div class="d-flex align-items-center gap-3">
+                                        <img src="cardano-ada-logo.png" alt="ADA" class="coin-logo">
+                                        <span>Cardano (ADA)</span>
+                                    </div>
+                                     <span>$ 890.00 <small class="text-muted ms-1">(5.6%)</small></span>
+                                </li>
+                                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     <div class="d-flex align-items-center gap-3">
+                                        <i class="bi bi-three-dots fs-4 text-muted"></i> <!-- Placeholder for other assets -->
+                                        <span>Other Assets</span>
+                                    </div>
+                                     <span>$ 400.00 <small class="text-muted ms-1">(2.5%)</small></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transactions -->
+                     <div data-aos="fade-up">
+                         <h3 class="h4 mb-3">Recent Transactions</h3>
+                         <div class="table-responsive">
+                             <table class="table coins-table align-middle small">
+                                 <thead>
+                                     <tr>
+                                         <th>Type</th>
+                                         <th>Coin</th>
+                                         <th>Amount</th>
+                                         <th class="d-none d-sm-table-cell">Price</th>
+                                         <th>Total Value</th>
+                                         <th>Date</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr>
+                                         <td><span class="badge bg-success-subtle text-success-emphasis">Buy</span></td>
+                                         <td><img src="ethereum-eth-logo.png" alt="ETH" class="coin-logo me-2">ETH</td>
+                                         <td>0.5 ETH</td>
+                                         <td class="d-none d-sm-table-cell">$2,300.00</td>
+                                         <td>$1,150.00</td>
+                                         <td>2023-11-14 10:30</td>
+                                     </tr>
+                                      <tr>
+                                         <td><span class="badge bg-danger-subtle text-danger-emphasis">Sell</span></td>
+                                         <td><img src="cardano-ada-logo.png" alt="ADA" class="coin-logo me-2">ADA</td>
+                                         <td>1000 ADA</td>
+                                         <td class="d-none d-sm-table-cell">$0.46</td>
+                                         <td>$460.00</td>
+                                         <td>2023-11-13 15:05</td>
+                                     </tr>
+                                     <tr>
+                                         <td><span class="badge bg-success-subtle text-success-emphasis">Buy</span></td>
+                                         <td><img src="solana-sol-logo.png" alt="SOL" class="coin-logo me-2">SOL</td>
+                                         <td>10 SOL</td>
+                                         <td class="d-none d-sm-table-cell">$98.50</td>
+                                         <td>$985.00</td>
+                                         <td>2023-11-12 09:15</td>
+                                     </tr>
+                                     <!-- More rows -->
+                                 </tbody>
+                             </table>
+                         </div>
+                     </div>
+                </div> <!-- End .portfolio-dashboard -->
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4">
+       <!-- Identical Footer Content from index.html -->
+       <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <a class="navbar-brand logo mb-2 d-inline-block" href="index.html">Crypto<span>Connect</span></a>
+                    <p class="footer-description text-light opacity-75 mb-3">
+                        Your all-in-one platform for cryptocurrency tracking, trading, and community discussions.
+                    </p>
+                    <div class="social-links d-flex gap-2">
+                        <a href="#" class="social-icon d-inline-flex align-items-center justify-content-center text-decoration-none" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-icon d-inline-flex align-items-center justify-content-center text-decoration-none" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon d-inline-flex align-items-center justify-content-center text-decoration-none" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon d-inline-flex align-items-center justify-content-center text-decoration-none" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-links-title h6 mb-3">Markets</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="markets.html" class="text-decoration-none">Top Coins</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Gainers</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Losers</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">New Listings</a></li>
+                    </ul>
+                </div>
+                 <div class="col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-links-title h6 mb-3">Community</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="chat.html" class="text-decoration-none">Chat Rooms</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Forums</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Events</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Guides</a></li>
+                    </ul>
+                </div>
+                 <div class="col-lg-2 col-md-6 col-6">
+                    <h5 class="footer-links-title h6 mb-3">Company</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#" class="text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Press</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                 <div class="col-lg-2 col-md-6 col-6">
+                     <h5 class="footer-links-title h6 mb-3">Legal</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Terms of Service</a></li>
+                         <li class="mb-2"><a href="#" class="text-decoration-none">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-3" style="border-color: rgba(255, 255, 255, 0.1);">
+            <div class="footer-bottom text-center text-md-start">
+                <p class="mb-2 small text-light opacity-50">© <span id="currentYear"></span> CryptoConnect. All rights reserved.</p>
+                <p class="disclaimer small text-light opacity-50 mb-0">Disclaimer: Cryptocurrency trading involves high risk. Consult a financial advisor. Only invest capital you can afford to lose.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Includes -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <!-- Specific JS for Portfolio page if needed (e.g., Charting library integration) -->
+</body>
+</html>

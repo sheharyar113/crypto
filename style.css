@@ -1,0 +1,413 @@
+/* style.css */
+:root {
+    --primary: #1E3A8A;       /* Dark Blue */
+    --primary-light: #3B82F6; /* Medium Blue */
+    --secondary: #10B981;     /* Teal/Green */
+    --dark: #0F172A;          /* Very Dark Blue/Slate */
+    --darker: #020617;        /* Near Black */
+    --dark-light: #1E293B;    /* Dark Slate */
+    --text: #E2E8F0;          /* Light Gray/Slate */
+    --text-light: #94A3B8;    /* Medium Gray/Slate */
+    --error: #EF4444;         /* Red */
+    --bs-body-bg: var(--dark);
+    --bs-body-color: var(--text);
+    --bs-border-color-translucent: rgba(255, 255, 255, 0.1); /* For Bootstrap components */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Override default dark theme link color if needed */
+a {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+a:hover {
+    color: #60a5fa; /* Lighter blue on hover */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--text); /* White text for headings */
+}
+
+/* --- Header --- */
+.custom-navbar {
+    background: rgba(15, 23, 42, 0.8); /* --dark with transparency */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+}
+.logo span {
+    color: var(--primary-light);
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--text);
+}
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px; /* Adjust as needed */
+    left: 1rem; /* Match padding */
+    background: var(--primary-light);
+    transition: width 0.3s;
+    width: 0; /* Ensure initially hidden */
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+     width: calc(100% - 2rem); /* Match padding */
+}
+
+/* Use Bootstrap's variable for toggler icon color */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-cta {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.25);
+    color: white;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: radial-gradient(ellipse at bottom, var(--dark) 0%, var(--darker) 100%);
+    position: relative;
+    overflow: hidden;
+    padding-top: 12rem; /* Increased padding */
+    padding-bottom: 8rem; /* Increased padding */
+    min-height: 100vh;
+}
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind content */
+}
+
+.hero-content {
+    z-index: 1; /* Above particles */
+    position: relative;
+}
+
+.main-heading {
+    font-size: clamp(2.5rem, 6vw, 3.8rem); /* Responsive font size */
+    background: linear-gradient(to right, var(--text), var(--text-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.sub-heading {
+    color: var(--text-light);
+    max-width: 600px;
+    font-size: 1.1rem;
+    margin-left: auto; /* Center align text block for text-center */
+    margin-right: auto; /* Center align text block for text-center */
+}
+@media (min-width: 992px) {
+    .sub-heading {
+        margin-left: 0; /* Align left on larger screens */
+        margin-right: 0;
+    }
+}
+
+.btn-secondary-custom {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-secondary-custom:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text);
+}
+
+/* --- Sections --- */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 3rem;
+    text-align: center;
+    background: linear-gradient(to right, var(--text), var(--text-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+/* Features Section */
+.feature-card {
+    background: rgba(30, 41, 59, 0.5); /* --dark-light with transparency */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+}
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--primary-light);
+}
+.feature-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-weight: 600;
+}
+.feature-description {
+    color: var(--text-light);
+}
+
+/* Ticker Section */
+.ticker-section {
+    background: linear-gradient(90deg, var(--dark-light) 0%, var(--dark) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    white-space: nowrap;
+}
+.ticker-container-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+.ticker-container {
+    display: inline-block; /* Changed from flex for animation */
+    animation: tickerScroll 40s linear infinite;
+    /* width: max-content; No longer needed */
+}
+@keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Adjust based on content width if needed */
+}
+.coin-ticker-item {
+    display: inline-flex; /* Changed for inline layout */
+    position: relative;
+    color: var(--text-light);
+    padding-right: 1.5rem !important; /* Ensure spacing */
+}
+.coin-ticker-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+.coin-ticker-item .coin-price {
+    color: var(--text);
+}
+
+/* Top Cryptocurrencies Section */
+.bg-darker-subtle {
+    background-color: #0b1221; /* Slightly lighter than darker */
+}
+.coins-table {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    overflow: hidden;
+    border-collapse: separate; /* Allows border-radius */
+    border-spacing: 0;
+}
+.coins-table thead th {
+    background: rgba(30, 58, 138, 0.3);
+    color: var(--text);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary);
+}
+.coins-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+.coins-table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+.coins-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--bs-border-color-translucent);
+    vertical-align: middle;
+}
+.coins-table tbody tr:last-child td {
+    border-bottom: none;
+}
+.coin-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+.trade-button {
+    background: transparent;
+    border: 1px solid var(--primary-light);
+    color: var(--primary-light);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+}
+.trade-button:hover {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--primary-light);
+}
+
+/* Chat Preview Section */
+.chat-preview {
+    background: rgba(30, 41, 59, 0.5); /* --dark-light with transparency */
+    border-radius: 16px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.chat-messages {
+    height: 350px;
+    overflow-y: auto;
+    padding-right: 1rem; /* Space for scrollbar */
+}
+/* Custom Scrollbar */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-messages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 10px;
+}
+.chat-bubble {
+    max-width: 75%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    position: relative;
+    word-wrap: break-word;
+}
+.user-bubble {
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+.other-bubble {
+    background: rgba(15, 23, 42, 0.7); /* --dark */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom-left-radius: 4px;
+    margin-right: auto;
+}
+.chat-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border-radius: 8px 0 0 8px !important; /* Override input-group */
+}
+.chat-input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-light);
+    box-shadow: none;
+    color: var(--text);
+}
+.chat-send-button {
+    background: var(--primary-light);
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0 !important; /* Override input-group */
+    transition: background-color 0.3s ease;
+}
+.chat-send-button:hover {
+    background: var(--primary);
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-description {
+    font-size: 0.9rem;
+}
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+.social-icon:hover {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--text);
+    transform: translateY(-3px);
+}
+.footer-links-title {
+    font-weight: 600;
+    color: var(--text);
+}
+.footer-links a {
+    color: var(--text-light);
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+.footer-links a:hover {
+    color: var(--primary-light);
+}
+.disclaimer {
+     font-size: 0.8rem;
+}
